@@ -4,6 +4,11 @@ let productsContainer = document.querySelector("#products");
 // let prevBtn = document.querySelector("#prevBtn");
 // let nextBtn = document.querySelector("#nextBtn");
 let paginationDiv = document.querySelector("#paginationDiv");
+let searchInput = document.querySelector("#search");
+
+searchInput.addEventListener("input", (e) => {
+    getProducts("products/search", { q: e.target.value });
+});
 
 const initApp = () => {
     getProducts();
@@ -12,11 +17,12 @@ document.addEventListener("DOMContentLoaded", initApp);
 
 const baseUrl = "https://dummyjson.com/";
 
-const getProducts = async function (params) {
+const getProducts = async function (path = "products", params) {
     try {
         const res = await fetch(
             baseUrl +
-                "products?" +
+                path +
+                "?" +
                 new URLSearchParams({
                     limit: 20,
                     ...params,
