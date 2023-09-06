@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ecommerce</title>
+        <title>E-commerce</title>
         <!-- <script src="https://cdn.tailwindcss.com"></script> -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-        <link
+        <!-- <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
             integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
-        />
+        /> -->
     </head>
     <body>
         <nav
@@ -93,9 +93,10 @@
                 </h2>
 
                 <div
+                    id="products"
                     class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
                 >
-                    <div class="group relative">
+                    <!-- <div class="group relative">
                         <div
                             class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
                         >
@@ -126,7 +127,7 @@
                         >
                             Add to cart
                         </button>
-                    </div>
+                    </div> -->
 
                     <!-- More products... -->
                 </div>
@@ -137,43 +138,42 @@
             class="mb-5 flex justify-center"
             aria-label="Page navigation example"
         >
-            <ul class="list-style-none flex">
-                <li>
-                    <a
-                        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-                        href="#"
-                        >Previous</a
-                    >
-                </li>
-                <li>
-                    <a
+            <div id="paginationDiv" class="list-style-none flex">
+                <!-- <button
+                    id="prevBtn"
+                    class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                >
+                    Previous
+                </button> -->
+                <!-- <li>
+                    <button
                         class="relative block rounded bg-slate-300 px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-                        href="#"
-                        >1</a
                     >
+                        1
+                    </button>
                 </li>
                 <li aria-current="page">
-                    <a
+                    <button
                         class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-                        href="#"
-                        >2</a
                     >
+                        2
+                    </button>
                 </li>
                 <li>
-                    <a
+                    <button
                         class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-                        href="#"
-                        >3</a
                     >
-                </li>
-                <li>
-                    <a
-                        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
-                        href="#"
-                        >Next</a
-                    >
-                </li>
-            </ul>
+                        3
+                    </button>
+                </li> -->
+                <!-- <button
+                    id="nextBtn"
+                    class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                >
+                    Next
+                </button> -->
+            </div>
         </footer>
     </body>
+    <script src="index.js"></script>
 </html>
