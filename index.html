@@ -16,7 +16,7 @@
     </head>
     <body>
         <nav
-            class="relative flex w-full flex-wrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4"
+            class="fixed top-0 left-0 z-50 flex w-full flex-wrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:py-4"
         >
             <div
                 class="flex w-full flex-wrap items-center justify-between px-3"
@@ -57,7 +57,7 @@
                     </span>
                 </div>
 
-                <div class="relative flex items-center">
+                <div id="cart" class="relative flex items-center">
                     <span
                         class="ml-3 rounded-md bg-danger px-[0.85em] py-[0.6em] text-[0.6rem] font-bold leading-none text-white bg-[red]"
                     >
@@ -175,6 +175,41 @@
                 </button> -->
             </div>
         </footer>
+
+        <div
+            id="cart-modal"
+            class="hidden bg-slate-200 fixed left-0 top-0 z-[1055] h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        >
+            <div class="flex justify-between px-5 items-center">
+                <h2>Selected products</h2>
+                <button id="closeCart" class="text-[32px]">x</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th class="p-2">Item</th>
+                        <th class="p-2">Price</th>
+                        <!-- <th class="p-2">Quantity</th> -->
+                        <th class="p-2"></th>
+                    </tr>
+                </thead>
+                <tbody class="cart-items-tbody">
+                    <!-- <tr>
+                        <td class="p-2">
+                            <p>iphone x</p>
+                        </td>
+                        <td class="p-2">300$</td>
+                        <td class="p-2">1</td>
+                        <td class="p-2">
+                            <button class="bg-red-300 p-1 rounded-[4px]">
+                                remove
+                            </button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
     </body>
     <script src="index.js"></script>
 </html>
