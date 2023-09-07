@@ -127,32 +127,6 @@ const addToCart = () => {
             `;
         }
     });
-    let addToCartBtns = document.querySelectorAll(".add-to-cart");
-    addToCartBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            cartQuantity.textContent = +cartQuantity.textContent + 1;
-
-            let product = btn.parentElement;
-            let title = product.querySelectorAll(".product-title")[0].innerText;
-            let price = product.querySelectorAll(".product-price")[0].innerText;
-            let img = product.querySelectorAll(".product-img")[0].src;
-
-            cartItemsTbody.innerHTML += `
-        <tr>
-            <td class="p-2 flex flex-col items-center">
-                <img src="${img}" alt="${title}" class="w-[100px] h-[100px] object-cover"/>
-                <p>${title}</p>
-            </td>
-            <td class="p-2">${price}$</td>
-            <td class="p-2">
-                <button class="z-50 remove-from-cart bg-red-300 p-1 rounded-[4px]">
-                    remove
-                </button>
-            </td>
-        </tr>
-            `;
-        });
-    });
 };
 
 const removeFromCart = () => {
