@@ -6,11 +6,10 @@ let productsContainer = document.querySelector("#products");
 let paginationDiv = document.querySelector("#paginationDiv");
 let searchInput = document.querySelector("#search");
 let cartBtn = document.querySelector("#cart");
+let cartQuantity = document.querySelector("#cart-quantity");
 let cartModal = document.querySelector("#cart-modal");
 let closeCartBtn = document.querySelector("#closeCart");
 let cartItemsTbody = document.querySelector(".cart-items-tbody");
-
-let currentPage = 1;
 
 cartBtn.addEventListener("click", () => {
     cartModal.classList.remove("hidden");
@@ -21,6 +20,8 @@ closeCartBtn.addEventListener("click", () => {
     cartModal.classList.remove("block");
     cartModal.classList.add("hidden");
 });
+
+let currentPage = 1;
 
 const initApp = () => {
     getProducts();
@@ -101,6 +102,8 @@ const addToCart = () => {
     let addToCartBtns = document.querySelectorAll(".add-to-cart");
     addToCartBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => {
+            cartQuantity.textContent = +cartQuantity.textContent + 1;
+
             let button = e.target;
             let product = button.parentElement;
             let title = product.querySelectorAll(".product-title")[0].innerText;
@@ -133,6 +136,7 @@ const removeFromCart = () => {
         if (e.target.classList.contains("remove-from-cart")) {
             // Remove the parent row when the "remove" button is clicked
             e.target.parentElement.parentElement.remove();
+            cartQuantity.textContent = +cartQuantity.textContent - 1;
         }
     });
 };

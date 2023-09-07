@@ -6,13 +6,6 @@
         <title>E-commerce</title>
         <!-- <script src="https://cdn.tailwindcss.com"></script> -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-        <!-- <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        /> -->
     </head>
     <body>
         <nav
@@ -57,16 +50,19 @@
                     </span>
                 </div>
 
-                <div id="cart" class="relative flex items-center">
+                <div
+                    id="cart"
+                    class="cursor-pointer relative flex items-center"
+                >
                     <span
-                        class="ml-3 rounded-md bg-danger px-[0.85em] py-[0.6em] text-[0.6rem] font-bold leading-none text-white bg-[red]"
+                        id="cart-quantity"
+                        class="ml-3 rounded-md bg-danger px-[0.85em] py-[0.6em] text-[0.6rem] font-bold leading-none text-white bg-green-500"
                     >
-                        1
+                        0
                     </span>
                     <!-- Cart Icon -->
-                    <a
+                    <div
                         class="ml-1 text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                        href="#"
                     >
                         <span class="[&>svg]:w-5">
                             <svg
@@ -80,7 +76,7 @@
                                 />
                             </svg>
                         </span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </nav>
