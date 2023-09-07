@@ -165,7 +165,6 @@ const removeFromCart = () => {
         }
     });
 };
-// removeFromCart();
 
 const pagination = (totalProducts) => {
     paginationDiv.innerHTML = "";
@@ -197,4 +196,3 @@ const onPageChange = () => {
         }
     });
 };
-// onPageChange();
