@@ -29,6 +29,9 @@ const initApp = () => {
         getProducts("products/search", { q: e.target.value });
         currentPage = 1;
     });
+    addToCart();
+    removeFromCart();
+    onPageChange();
 };
 if (document.readyState == "loading") {
     document.addEventListener("DOMContentLoaded", initApp);
@@ -95,17 +98,41 @@ const renderProducts = (products) => {
     </div>
         `;
     });
-    addToCart();
 };
 
 const addToCart = () => {
-    let addToCartBtns = document.querySelectorAll(".add-to-cart");
-    addToCartBtns.forEach((btn) => {
-        btn.addEventListener("click", (e) => {
+    productsContainer.addEventListener("click", (e) => {
+        if (e.target.classList.contains("add-to-cart")) {
             cartQuantity.textContent = +cartQuantity.textContent + 1;
 
-            let button = e.target;
-            let product = button.parentElement;
+            let btn = e.target;
+            let product = btn.parentElement;
+            let title = product.querySelectorAll(".product-title")[0].innerText;
+            let price = product.querySelectorAll(".product-price")[0].innerText;
+            let img = product.querySelectorAll(".product-img")[0].src;
+
+            cartItemsTbody.innerHTML += `
+        <tr>
+            <td class="p-2 flex flex-col items-center">
+                <img src="${img}" alt="${title}" class="w-[100px] h-[100px] object-cover"/>
+                <p>${title}</p>
+            </td>
+            <td class="p-2">${price}$</td>
+            <td class="p-2">
+                <button class="z-50 remove-from-cart bg-red-300 p-1 rounded-[4px]">
+                    remove
+                </button>
+            </td>
+        </tr>
+            `;
+        }
+    });
+    let addToCartBtns = document.querySelectorAll(".add-to-cart");
+    addToCartBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            cartQuantity.textContent = +cartQuantity.textContent + 1;
+
+            let product = btn.parentElement;
             let title = product.querySelectorAll(".product-title")[0].innerText;
             let price = product.querySelectorAll(".product-price")[0].innerText;
             let img = product.querySelectorAll(".product-img")[0].src;
@@ -126,20 +153,19 @@ const addToCart = () => {
             `;
         });
     });
-    removeFromCart();
 };
 
 const removeFromCart = () => {
-    // Attach the event listener to a parent element (e.g., cartItemsTbody)
-
     cartItemsTbody.addEventListener("click", (e) => {
         if (e.target.classList.contains("remove-from-cart")) {
             // Remove the parent row when the "remove" button is clicked
             e.target.parentElement.parentElement.remove();
+
             cartQuantity.textContent = +cartQuantity.textContent - 1;
         }
     });
 };
+// removeFromCart();
 
 const pagination = (totalProducts) => {
     paginationDiv.innerHTML = "";
@@ -156,19 +182,19 @@ const pagination = (totalProducts) => {
             </button>
             `;
     });
-    onPageChange();
 };
 
 const onPageChange = () => {
-    let pageBtns = document.querySelectorAll(".page-btn");
-    pageBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
+    paginationDiv.addEventListener("click", (e) => {
+        if (e.target.classList.contains("page-btn")) {
+            const btn = e.target;
             currentPage = +btn.textContent;
             getProducts(searchInput.value ? "products/search" : "products", {
                 q: searchInput.value || "",
                 skip: (currentPage - 1) * 20,
             });
             btn.classList.add("bg-slate-300");
-        });
+        }
     });
 };
+// onPageChange();
